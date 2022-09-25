@@ -279,7 +279,8 @@ class Person:
         return False
 
     def name_flag(self) -> bool:
-        if self.name in fake_names:
+        self.name_preprocessing()
+        if self.forename + " " + self.surname in fake_names:
             self.red_flags.append("individual names found in list of fake / generic names")
             return True
         else:
