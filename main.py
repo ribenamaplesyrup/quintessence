@@ -1,8 +1,9 @@
 import json
-
+import sys
 from model import Company, Analysis
 
-ch_number = "06004999"
+# ch_number = "06004999"
+ch_number = sys.argv[1]
 
 target_company = Company(company_number=ch_number)
 analysis = Analysis(target_company)
