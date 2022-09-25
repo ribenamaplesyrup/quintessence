@@ -29,7 +29,6 @@ Then you'll need to create a local file to store your key. If you're on Linux or
         # and press CTRL+X to save and exit
 
 ## Usage
-# TODO
 Open `Tutorial 1`
 
 ## Additional Information
