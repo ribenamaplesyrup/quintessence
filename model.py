@@ -280,9 +280,10 @@ class Person:
 
     def name_flag(self) -> bool:
         self.name_preprocessing()
-        if self.forename + " " + self.surname in fake_names:
-            self.red_flags.append("individual names found in list of fake / generic names")
-            return True
+        if self.forename and self.surname:
+            if self.forename + " " + self.surname in fake_names:
+                self.red_flags.append("individual names found in list of fake / generic names")
+                return True
         else:
             return False
 
@@ -291,6 +292,7 @@ class Person:
         # sleep before using API to avoid blocking
         time.sleep(random.uniform(0, 2))
         googlenews = GoogleNews(period='10y')
+        input_name = ""
 
         if self.forename and self.surname:
             # for PSCs (exact search operand with quotes)
@@ -299,13 +301,13 @@ class Person:
         elif self.name:
             # for officers - no exact search since self.name not a typical way to refer to someone
             self.name_preprocessing()
-            input_name = '"' + self.forename + " " + self.surname + '"'
-
+            if self.forename and self.surname:
+                input_name = '"' + self.forename + " " + self.surname + '"'
         else:
             # Can't extract a valid input name
             return False
 
-        if extra_search_term:
+        if extra_search_term and input_name:
             if extra_search_term.split(" ")[-1].upper() in company_types:
                 input_name += ' ' + '"' + ' '.join(extra_search_term.split(" ")[0:-1]) + '"'
             else:
@@ -327,6 +329,7 @@ class Person:
 
     def residence_flag(self) -> bool:
         # Country of residence is a tax haven or country with financial sanctions (e.g. OFAC Sanction List)
+        print(self.country_of_residence)
         if self.country_of_residence in red_flag_countries:
             self.red_flags.append("country of residence in red flag countries")
             return True
