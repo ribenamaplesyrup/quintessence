@@ -30,13 +30,12 @@ Then you'll need to create a local file to store your key. If you're on Linux or
 
 ## Usage
 # TODO
-This sections includes detailed instructions for using the tool.
-If the tool has a command-line interface, include common commands and arguments, and some examples of commands and a description of the expected output. If the tool has a graphical user interface or a browser interface, include screenshots and describe a common workflow.
+Open `Tutorial 1`
 
 ## Additional Information
 ### Next Steps
 Here's a list of features that we'd like to develop in the future
-* better documentation and guided use cases - anything to make the user's life easier; 
+* better documentation and guided use cases - anything to make the user's life easier;
 * extract metadata from linked PDF and XHTML documents;
 * OCR of PDF documents to extract interesting content;
 * extract data from other API endpoints (appointments, registers, charges, etc.)
@@ -51,5 +50,5 @@ Here's a list of features that we'd like to develop in the future
 Here are some know bugs or limitations:
 * pagination support is needed (if a company has more than 25 documents, directors, etc. - the data pulled will be limited to the first 25);
 * for rules involving matching against names, countries, or citizenship, we need string pre-processing and fuzzy matching rules to avoid false negatives;
-* in order to map citizenship / nationality to countries, we need to research and implement other packages ([1](https://github.com/flyingcircusio/pycountry), [2](https://github.com/knowitall/chunkedextractor/blob/master/src/main/resources/edu/knowitall/chunkedextractor/demonyms.csv)); 
+* in order to map citizenship / nationality to countries, we need to research and implement other packages ([1](https://github.com/flyingcircusio/pycountry), [2](https://github.com/knowitall/chunkedextractor/blob/master/src/main/resources/edu/knowitall/chunkedextractor/demonyms.csv));
 * exception handling could be streamlined;
